@@ -2,7 +2,7 @@ package com.jojoldu.book.demo.web;
 
 import com.jojoldu.book.demo.domain.posts.Posts;
 import com.jojoldu.book.demo.domain.posts.PostsRepository;
-import com.jojoldu.book.demo.web.Dto.PostSaveRequestDto;
+import com.jojoldu.book.demo.web.Dto.PostsSaveRequestDto;
 import com.jojoldu.book.demo.web.Dto.PostsUpdateRequestDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
@@ -39,7 +39,7 @@ public class PostsApiControllerTest {
         //given
         String title="title";
         String content="content";
-        PostSaveRequestDto requestDto =PostSaveRequestDto.builder()
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .title(title)
                 .content(content)
                 .author("author")

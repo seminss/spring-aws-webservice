@@ -1,8 +1,8 @@
 package com.jojoldu.book.demo.web;
 
-import com.jojoldu.book.demo.service.posts.PostService;
-import com.jojoldu.book.demo.web.Dto.PostResponseDto;
-import com.jojoldu.book.demo.web.Dto.PostSaveRequestDto;
+import com.jojoldu.book.demo.service.posts.PostsService;
+import com.jojoldu.book.demo.web.Dto.PostsResponseDto;
+import com.jojoldu.book.demo.web.Dto.PostsSaveRequestDto;
 import com.jojoldu.book.demo.web.Dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 public class PostApiController {
-    private final PostService postService;
+    private final PostsService postService;
 
     @PostMapping("/api/v1/posts")
-    public Long save(@RequestBody PostSaveRequestDto requestDto){
+    public Long save(@RequestBody PostsSaveRequestDto requestDto){
         return postService.save(requestDto);
     }
 
@@ -23,7 +23,7 @@ public class PostApiController {
     }
 
     @GetMapping("api/v1/posts/{id}")
-    public PostResponseDto findById(@PathVariable Long id){
+    public PostsResponseDto findById(@PathVariable Long id){
         return postService.findById(id);
     }
 }
