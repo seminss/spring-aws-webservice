@@ -3,8 +3,8 @@ package com.jojoldu.book.demo.service.posts;
 import com.jojoldu.book.demo.domain.posts.Posts;
 import com.jojoldu.book.demo.domain.posts.PostsRepository;
 import com.jojoldu.book.demo.web.Dto.PostSaveRequestDto;
-import com.jojoldu.book.demo.web.PostResponseDto;
-import com.jojoldu.book.demo.web.PostsUpdateRequestDto;
+import com.jojoldu.book.demo.web.Dto.PostResponseDto;
+import com.jojoldu.book.demo.web.Dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

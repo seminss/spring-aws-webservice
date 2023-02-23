@@ -1,7 +1,9 @@
 package com.jojoldu.book.demo.web;
 
 import com.jojoldu.book.demo.service.posts.PostService;
+import com.jojoldu.book.demo.web.Dto.PostResponseDto;
 import com.jojoldu.book.demo.web.Dto.PostSaveRequestDto;
+import com.jojoldu.book.demo.web.Dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

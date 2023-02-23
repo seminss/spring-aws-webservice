@@ -1,4 +1,4 @@
-package com.jojoldu.book.demo.web;
+package com.jojoldu.book.demo.web.Dto;
 
 import com.jojoldu.book.demo.domain.posts.Posts;
 import lombok.Getter;
