@@ -5,11 +5,14 @@
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            <!--userName 값이 있다면 userName 노출-->
             {{#userName}}
                 Logged in as: <span id="user">{{userName}}</span>
+                <!--스프링 시큐리티에서 기본적으로 제공하는 로그아웃 URL-->
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
             {{/userName}}
-            {{^userName}}
+            {{^userName}} <!--머스테치에서는 해당 값이 존재하지 않는 경우 ^ 사용 -> userName 이 없으면 로그인 버튼 노출시키도록 구현-->
+                <!--스프링 시큐리티에서 기본적으로 제공하는 로그인 URL-->
                 <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
                 <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
             {{/userName}}

@@ -1,6 +1,7 @@
 package com.jojoldu.book.demo.web;
 
-import com.jojoldu.book.demo.domain.posts.PostsRepository;
+import com.jojoldu.book.demo.config.auth.dto.SessionUser;
+import com.jojoldu.book.demo.domain.user.User;
 import com.jojoldu.book.demo.service.posts.PostsService;
 import com.jojoldu.book.demo.web.Dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -9,18 +10,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Optional;
+import javax.servlet.http.HttpSession;
+
 
 //페이지와 관련된 컨트롤러
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) { //서버템플릿 엔진에서 사용할 수 있는 객체 지정 가능
+    public String index(Model model){
+
         model.addAttribute("posts",postsService.findAllDesc());
-        //src/main/resources/templates + /index + .mustache 자동 주소 완성
+        SessionUser user= (SessionUser) httpSession.getAttribute("user");
+
+        //세션에 저장된 값이 있을 때만 model 에 userName 으로 등록
+        if(user!=null){
+            model.addAttribute("userName",user.getName());
+        }
         return "index";
     }
 
@@ -36,5 +45,4 @@ public class IndexController {
 
         return "posts-update";
     }
-
 }
