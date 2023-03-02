@@ -1,5 +1,6 @@
 package com.jojoldu.book.demo.web;
 
+import com.jojoldu.book.demo.config.auth.LoginUser;
 import com.jojoldu.book.demo.config.auth.dto.SessionUser;
 import com.jojoldu.book.demo.domain.user.User;
 import com.jojoldu.book.demo.service.posts.PostsService;
@@ -21,14 +22,13 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
 
         model.addAttribute("posts",postsService.findAllDesc());
-        SessionUser user= (SessionUser) httpSession.getAttribute("user");
 
         //세션에 저장된 값이 있을 때만 model 에 userName 으로 등록
         if(user!=null){
-            model.addAttribute("userName",user.getName());
+            model.addAttribute("userId",user.getName());
         }
         return "index";
     }
