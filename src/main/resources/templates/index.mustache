@@ -13,6 +13,7 @@
             {{/userId}}
             {{^userId}} <!--머스테치에서는 해당 값이 존재하지 않는 경우 ^ 사용 -> userName 이 없으면 로그인 버튼 노출시키도록 구현-->
                 <!--스프링 시큐리티에서 기본적으로 제공하는 로그인 URL-->
+<!--                네이버 로그인 URL은 application-oauth.properties 에 등록한 redirect-uri 값에 맞춰 자동으로 등록-->
                 <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
                 <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
             {{/userId}}
