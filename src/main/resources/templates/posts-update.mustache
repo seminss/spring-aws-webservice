@@ -1,0 +1,36 @@
+{{>layout/header}}
+<h1>게시글 수정</h1>
+<div class="col-md-12">
+    <div class="col-md-4">
+        <from>
+            <div class="from-group">
+                <label for="id">글 번호</label>
+                <input type="text" class="from-control"
+                       id="id" value="{{post.id}}" readonly>
+                <!--머스테치는 객체의 필드 접근시 점(dot)으로 구분, 즉 Post 클래스의 id에 대한 접근은 Post.id로 사용-->
+            </div>
+            <div class="from-group">
+                <label for="title">제목</label>
+                <input type="text" class="from-control"
+                       id="title" value="{{post.title}}">
+            </div>
+            <div class="from-group">
+                <label for="author">작성자</label>
+                <input type="text" class="from-control"
+                       id="author" value="{{post.author}}"readonly>
+                <!--input태그에 읽기 기능만 허용하는 속성, id & author은 읽기만 사용 가능하다-->
+            </div>
+            <div class="from-group">
+                <label for="content">내용</label>
+                <textarea class="from-control"
+                          id="content">{{post.title}}</textarea>
+            </div>
+        </from>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
+        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+    </div>
+
+</div>
+
+{{>layout/footer}}

@@ -2,7 +2,8 @@ package com.jojoldu.book.demo.web;
 
 import com.jojoldu.book.demo.domain.posts.Posts;
 import com.jojoldu.book.demo.domain.posts.PostsRepository;
-import com.jojoldu.book.demo.web.Dto.PostSaveRequestDto;
+import com.jojoldu.book.demo.web.Dto.PostsSaveRequestDto;
+import com.jojoldu.book.demo.web.Dto.PostsUpdateRequestDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -38,7 +39,7 @@ public class PostsApiControllerTest {
         //given
         String title="title";
         String content="content";
-        PostSaveRequestDto requestDto =PostSaveRequestDto.builder()
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .title(title)
                 .content(content)
                 .author("author")
